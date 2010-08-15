@@ -3,6 +3,7 @@
 #include <linux/init.h>         /* for macro module_init(), module_exit() */
 #include <linux/moduleparam.h>  /* for module_param() macro */
 #include <linux/stat.h>         /* for permission bit: S_IRUSR ... */
+#include "hello_call.h"			/* for modules span multiple file */
 
 /* info:
  * printk will appear on console if priority is less than "int console_loglevel" */
@@ -41,6 +42,7 @@ static int __init hello_3_init (void)
 
 static void __exit hello3_exit (void)
 {
+	myprint();
 	printk(KERN_ALERT "Bye!\n");
 }
 
